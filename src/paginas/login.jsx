@@ -1,35 +1,75 @@
-
-import React from 'react';
-import '../stylesheets/login.css'; 
+import React, { useEffect } from 'react';
+import '../stylesheets/stylelogin.css'; 
 import { FaEnvelope, FaLock } from 'react-icons/fa'; 
 
 const Login = () => {
-  return (
-    <div className="login-container">
-      <div className="login-content">
-        <h2>Iniciar sesión</h2>
-        <form>
-          <div className="input-group">
-            
-            <div className="input-with-icon">
-              <input type="email" placeholder="Username" />
-              <FaEnvelope className="icon" />
-            </div>
+  useEffect(() => {
+    const btnRegister = document.getElementById("btnRegister");
+    const btnLogin = document.getElementById("btnLogin");
+
+    btnRegister.addEventListener("click", register);
+    btnLogin.addEventListener("click", inicioSesion);
+
+    return () => {
+      btnRegister.removeEventListener("click", register);
+      btnLogin.removeEventListener("click", inicioSesion);
+    };
+  }, []);
+
+  const register = () => {
+    document.querySelector(".FormularioRegistro").style.display = "block";
+    document.querySelector(".ContenedorLogin").style.left = "510px";
+    document.querySelector(".FormularioLogin").style.display = "none";
+    document.querySelector(".CajaRegister").style.opacity = "0";
+    document.querySelector(".CajaLogin").style.opacity = "1";
+  };
+
+  const inicioSesion = () => {
+    document.querySelector(".FormularioRegistro").style.display = "none";
+    document.querySelector(".ContenedorLogin").style.left = "10px";
+    document.querySelector(".FormularioLogin").style.display = "block";
+    document.querySelector(".CajaRegister").style.opacity = "1";
+    document.querySelector(".CajaLogin").style.opacity = "0";
+  };
+
+  return (<>
+    <div className="overly">
+      <div className="container">
+        <div className="CajaAtras">
+          <div className="CajaLogin">
+            <h3>¿Ya Tienes Cuenta?</h3>
+            <p>Inicia sesion para que puedas ver el menú</p>
+            <button id="btnLogin" >
+              Iniciar Sesión
+            </button>
           </div>
-          <div className="input-group">
-            
-            <div className="input-with-icon">
-              <input type="password" placeholder="Password" />
-              <FaLock className="icon" />
-            </div>
+          <div className="CajaRegister">
+            <h3>¿Aun no tienes Cuenta?</h3>
+            <p>Registrate Para que Puedas Iniciar Sesion</p>
+            <button id="btnRegister">
+              Registrarte
+            </button>      
           </div>
-          <button type="submit" className="login-button">Iniciar sesión</button>
-        </form>
-        <p className="signup-text">
-          No tengo una cuenta <span className="signup-link">Crear cuenta</span>
-        </p>
+        </div>
+        <div className="ContenedorLogin">
+          <form action="" className="FormularioLogin" method="post">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" placeholder="Correo Electrónico" />
+            <input type="password" placeholder="Contraseña" />
+            <button type="submit">Entrar</button>
+          </form>
+          <form action="" className="FormularioRegistro" method="post">
+            <h2>Registrate</h2>
+            <input type="text" placeholder="Nombre" />
+            <input type="text" placeholder="Correo Electrónico" />
+            <input type="password" placeholder="Contraseña" />
+            <button type="submit">Registrarte</button>
+          </form>
+        </div>
       </div>
     </div>
+      
+    </>
   );
 };
 
