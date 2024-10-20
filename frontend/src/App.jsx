@@ -8,6 +8,7 @@ import Eventos from './paginas/eventos';
 import ContactForm from './paginas/formcontact';
 import Login from './paginas/login';
 import Documentos from './paginas/documentos';
+import ControlSocial from './paginas/controlsocial';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/contacto" element={<Eventos />} />
                     <Route path="/control-social" element={<ContactForm />} />
                     <Route path="/documentos" element={<Documentos />} />
+                    <Route path="/controlsocial" element={<ControlSocial />} />
                   </Routes>
                 </>
               }
