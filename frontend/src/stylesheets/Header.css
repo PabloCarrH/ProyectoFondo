@@ -11,8 +11,11 @@
     left: 0;
     z-index: 1000;
     box-sizing: border-box;
+    transition: transform 0.3s ease;
   }
-  
+  .header.hidden {
+    transform: translateY(-100%); /* Ocultar el encabezado moviéndolo hacia arriba */
+  }
   .logo {
     font-size: 1.5em;
     font-weight: bold;
