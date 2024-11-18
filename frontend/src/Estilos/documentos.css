@@ -1,0 +1,109 @@
+.containerdoc {
+    margin: 5% 5%;
+    padding-bottom: 40px;
+}
+
+.descripcionDoc {
+    margin: 20px 0;
+    font-size: 1.6rem;
+     
+}
+
+.listaDocumentos {
+    margin-top: 20px;
+}
+
+.containerdocumento1, 
+.containerdocumento2, 
+.containerdocumento3, 
+.containerdocumento4, 
+.containerdocumento5 {
+    background-color: #529db8;
+    border: 1.5px solid #ffffff;
+    padding: 30px; 
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 100; 
+    font-size: 1rem; 
+}
+
+.listaDocumentos p, .listaDocumentos span {
+    font-size: 0.95rem; 
+    font-weight: 100; 
+    color: #333; 
+}
+
+.botonDescargaDoc, .botonVistaPreviaDoc {
+    background-color: white;
+    color: black;
+    padding: 12px 30px;
+    margin-right: 15px;
+    margin-left: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botonDescargaDoc:hover, .botonVistaPreviaDoc:hover {
+    background-color: #0056b3;
+}
+
+.formularioContainerDoc {
+    background-color: white;
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-size: 1.3rem;
+}
+
+.formularioContainerDoc h3 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2rem;
+    
+}
+
+.inputNombreDoc, .inputCorreoDoc, .textareaSolicitudDoc {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.botonEnvioDoc {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botonEnvioDoc:hover {
+    background-color: #0056b3;
+}
+
+.tituloFormDoc {
+    color: #333;
+    font-size: 2rem;
+    
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.formularioContainerDoc {
+    background-color: white;
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), 
+                0 4px 20px rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}

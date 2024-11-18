@@ -1,0 +1,75 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+
+.CarrouselIContent {
+    color: rgb(61, 92, 107);
+    text-align: left;
+    height: 530px;
+    width: 100%;
+    padding: 7%;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.CarrouselIContent h1{
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.CarrouselIContent p{
+    font-family: "Didact Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.Calendario{
+    height: 530px;
+    width: 45%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 4%;
+    margin-bottom: 4.5%;
+    background-color: white;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Carrousel{
+    margin-left: 3%;
+    margin-top: 5%;
+    height: 530px;
+    width: 37%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px){
+    .Calendario{
+        width: 95%;
+        font-size: 0.7rem;
+    }
+    .Carrousel{
+        width: 100%;
+        margin-top: 40%;
+        height: auto;
+        font-size: 0.5rem;
+    }
+    .CarrouselIContent{
+        height: auto;
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .Calendario{
+        width: 100%;
+        margin-top: 3%;
+        padding: 15px;
+    }
+}
+

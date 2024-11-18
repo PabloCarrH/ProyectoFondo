@@ -1,0 +1,133 @@
+#barraUsuario{
+    background-color: #4f88d1;
+    
+}
+
+#barraUsuario img{
+    border: #1e5194 2px solid ;
+}
+#mainDashboard{
+    background-color: #deecf1;
+    width: 100%;
+    height: 120vh;
+}
+#PrincipalCuenta{
+    width: 90%;
+}
+
+#CuentasCajaArriba{
+    height: 270px;
+    margin: 4% 4% 2% 4%;
+    display: flex;
+    padding: 10px;
+}
+
+#IngresosCuenta {
+    width: 45%;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+#IngresosCuenta:hover,#EstadoCuentaActual:hover {
+    transform: scale(1.05); 
+}
+
+#IngresosCuenta:hover p {
+    color: black; 
+}
+#IngresosCuenta p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #9b9a9a;
+}
+
+#EstadoCuentaActual{
+    width: 45%;
+    margin-left: 40px;
+    background-color: #e74c3c;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: white; 
+}
+
+#HistorialPagos{
+    width: 85%;
+    height: 200px;
+    margin: 1% 5% 5% 5% ;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+#UsuarioPerfil{
+    width: 25%;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    font-weight: 600;
+}
+
+#UsuarioPerfil img{
+    height: 150px;
+}
+
+#AfiliacionPerfil{
+    width: 35%;
+    margin-left: 35px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #4f88d1;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+#CambiarContraseña{
+    width: 35%;
+    margin-left: 35px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #45b39d;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    cursor: pointer;
+}

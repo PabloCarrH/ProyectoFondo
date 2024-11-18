@@ -1,0 +1,240 @@
+.emprendedores-page {
+
+  padding: 20px 0;
+}
+
+.containeremp {
+  margin: 40px auto;
+  padding: 60px;
+  max-width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal para el texto e imagen */
+.content-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px;
+}
+
+#texto-apoyo-emprendedores {
+  flex: 1; 
+  padding-right: 20px; 
+}
+
+#contenedorimg {
+  flex: 0 0 260px; 
+  margin-left: 20px; 
+}
+
+#contenedorimg img {
+  width: 100%; 
+  height: auto; 
+}
+
+.title-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.title-bar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 40px; 
+  background-color: #529db8; 
+  z-index: 0;
+}
+
+.title-container h1, h2, h3 {
+  position: relative;
+  z-index: 1;
+  color: white; 
+  margin: 0;
+  padding-left: 50px;
+}
+
+p, ul {
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+
+.emp-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #333;
+  background-color: transparent;
+  border: 1.5px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.emp-btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+.inscripcion-btn {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #555;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 0 0 23%; /* Ajusta este valor para controlar el ancho de las tarjetas */
+  margin-bottom: 40px;
+  padding: 10px;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2em;
+  color:#333;
+  margin-bottom: 10px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.slider-button {
+  background-color: #050a15;
+  color: #e23939;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contendor-testimony {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding-bottom: 20px;
+}
+
+.contendor-testimony p{
+  padding-left: 40px;
+  text-align: left;
+}
+
+.contendor-testimony h3{
+  padding-left: 40px;
+  text-align: left;
+}
+
+
+.arrow-button {
+  width: 20px;
+  height: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+.arrow-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.historias{
+  width: 100%; 
+  transition: opacity 0.5s ease-in-out; 
+}
+
+
+.historia {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  opacity: 0; 
+  transition: opacity 0.5s ease-in-out; 
+  pointer-events: none; 
+  text-align: left;
+  width: 100%; 
+}
+.animating.historia--show {
+  opacity: 0; /* Cuando comienza a cambiar, se oculta */
+}
+
+.historia--show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.story-content {
+  flex: 1; 
+  padding-right: 20px; 
+}
+
+.story-img-container {
+  flex: 0 0 200px; 
+  margin-left: 20px; /* Separa la imagen del texto */
+}
+
+.story-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.titletestimony {
+  color: #000000;
+}
+
+.contenttestimony {
+  color: #333;
+}

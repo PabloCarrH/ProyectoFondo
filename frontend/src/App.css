@@ -1,0 +1,192 @@
+.App {
+  text-align: center;
+  
+}
+
+
+html,body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  background-color: #deecf1;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center;
+}
+
+
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden; 
+  box-sizing: border-box; 
+  flex-wrap: wrap;
+}
+
+
+.navItem2 {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  padding: 0 10px; 
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.7em;
+  padding: 0 10px; 
+  transition: background-color 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+
+.navItem:not(:last-child) {
+  border-right: 1px solid white; /* Línea delgada y blanca */
+  margin-right: 10px; /* Espacio adicional después de la línea */
+  
+}
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.2); }
+
+.navButtons {
+  display: flex;
+  gap: 8px; 
+  margin-left: auto;
+  margin-right: 10px; 
+  align-items: center;
+}
+
+
+.btn {
+  padding: 6px 15px; 
+  font-size: 0.8em;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn {
+  background-color: transparent;
+}
+
+
+.get-started-btn {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+
+.icon {
+  margin-right: 10px; 
+  margin-left: 0px;
+  vertical-align: middle; 
+  font-size: 10px; 
+}
+
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0; 
+  background-color: rgba(255, 255, 255, 0); 
+  color: white;
+  height: calc(100vh - 80px); 
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; 
+  gap: 20%;
+}
+
+.hero-text {
+  max-width: 45%;
+  margin-right: 20px;
+}
+
+.hero-text h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: .8em;
+  margin-bottom: 20px;
+}
+
+.hero-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: transparent;
+  border: 1px solid white;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+
+  background-color: white;
+  color: black;
+}
+.hero-image {
+  max-width: 54%;
+  display: flex;
+  justify-content: center;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.page {
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0); 
+  text-align: center;
+}
