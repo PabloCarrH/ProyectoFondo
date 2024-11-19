@@ -14,6 +14,44 @@ html,body {
   background-position: center;
 }
 
+.calendar{
+  background-color: white;
+  width: 100%;
+  height: 600px;
+  margin: 0;
+}
+
+.carru{
+  width: 50%;
+  float: left;
+  height: 600px;
+}
+
+.titlesCalendar{
+  background-color: white;
+  color: #0f526e;
+  text-align: center;
+}
+
+.titlesCalendar h1{
+  color: #0f526e;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.crds{
+  background-color: white;
+  margin: 0;
+  margin-top: 0;
+  height: 500px;
+}
+
+
+.cale{
+  width: 50%;
+  height: 600px;
+  float: left;
+}
 
 
 .header {

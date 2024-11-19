@@ -8,10 +8,9 @@ import DashboardU from './Paginas/DasboardU.jsx';
 import Contacto from './Paginas/contacto.jsx';
 import Documentos from './Paginas/documentos.jsx';
 import Corporativo from './Paginas/corporativo.jsx';
-import CarrouselInfo from './components/carrouselInfo' 
-import { Calendario } from './components/calendario';
-import GroupExample from './components/card';
-import Footer from './components/footer';
+import {Calendario} from './components/calendario';
+import Carrusel from './components/carrouselInfo.jsx';
+import Cards from './components/card'
 import { FaAngleDown } from "react-icons/fa";
 import Emprendedores from './Paginas/emprendedores.jsx';
 import ControlSocial from './Paginas/controlsocial.jsx';
@@ -38,25 +37,45 @@ const Header = ({ hidden }) => (
 function Home() {
   return (
     <>
-    <section className="hero">
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1>Proyecto de Fondos</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-          <button className="hero-button">Conocer más</button>
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1>Proyecto de Fondos</h1>
+            <p style={{ color: '#073b51' }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </p>
+            <a href="/contacto">
+              <button style={{ color: '#073b51' }} className="hero-button">Conocer más</button>
+            </a>
+          </div>
+          <div className="hero-image">
+            <img src={imgmoney} alt="Descripción de la imagen" />
+          </div>
         </div>
-        <div className="hero-image">
-          <img src={imgmoney} alt="Descripción de la imagen" />
-        </div>
+      </section>
+      <div className='titlesCalendar'>
+        <h1>¡No te pierdas nuestros eventos!</h1>
+        <h4>Aprovecha esta oportunidad de aprendizaje y cononce toso lo que podemos ofrecerte</h4>
       </div>
-
-      
-
-    </section>
-    
-      </>
+      <div className='calendar'>
+          <div className='carru'>
+            <Calendario/>
+          </div>
+          <div className='cale'>
+            <Carrusel/>
+          </div>
+      </div>
+      <div className='titlesCalendar'>
+        <h1>¡No te pierdas nuestros eventos!</h1>
+        <h4>Aprovecha esta oportunidad de aprendizaje y cononce toso lo que podemos ofrecerte</h4>
+      </div>
+      <div className='crds'>
+        <Cards/>
+      </div>
+    </>
   );
 }
+
 
 function App() {
   const [hidden, setHidden] = useState(false);

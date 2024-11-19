@@ -82,9 +82,11 @@ const Login = () => {
   return (
     <>
       <div className="overly">
-        <button className="btnBack" onClick={() => navigate(-1)}>
+        <a href="../">
+        <button className="btnBack">
             Volver
           </button>
+          </a>
         <div className="container">
           <div className="CajaAtras">
             <div className="CajaLogin">

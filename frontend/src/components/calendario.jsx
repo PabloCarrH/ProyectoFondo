@@ -46,7 +46,6 @@ export function Calendario() {
           borderBottom: '1px solid #ddd'
         }}
       >
-        {/* Sección izquierda: Mostrar el mes actual */}
         <span
           style={{
             fontSize: '1.5em',
@@ -57,7 +56,6 @@ export function Calendario() {
           {label()}
         </span>
 
-        {/* Sección derecha: Botones de navegación */}
         <div>
           <button
             style={{
@@ -110,7 +108,7 @@ export function Calendario() {
         startAccessor="start"
         endAccessor="end"
         components={{
-          toolbar: CustomToolbar, // Sobrescribir la barra de herramientas
+          toolbar: CustomToolbar, 
         }}
         style={{ height: 520, padding: '10px'}}
       />

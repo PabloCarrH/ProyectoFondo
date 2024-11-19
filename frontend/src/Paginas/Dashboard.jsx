@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../Estilos/estilosdashboard.css'; 
 import logo from '../img/logoFinanza.jpg';
 import user from '../img/usuario.png';
-import Reportes from '../components/graficos'
+import Reportes from '../components/reportes'
 import Gestion from '../components/gestion'
+import Estadistica from '../components/graficos'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMoneyBillTrendUp, faCommentDots, faBug, faBell, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
-    const [seccionActual, setSeccionActual] = useState('reportes'); // Nuevo estado para manejar la sección
+    const [seccionActual, setSeccionActual] = useState('Estadistica'); // Nuevo estado para manejar la sección
     const cloudRef = useRef(null);
     const barraLateralRef = useRef(null);
     const mainRef = useRef(null);
@@ -66,7 +67,7 @@ const Dashboard = () => {
                             </a>
                         </li>
                         <li id="Salir" onClick={() => setSeccionActual('Salir')}>
-                            <a href="#">
+                            <a href="../login">
                                 <i><FontAwesomeIcon icon={faArrowAltCircleLeft} className="fa-xl" /></i>
                                 <span>Salir</span>
                             </a>
@@ -81,10 +82,14 @@ const Dashboard = () => {
             </div>
             <main className='dash' id="mainDashboard" ref={mainRef}>
                 <div className="encabezado">
+                    {seccionActual === 'Estadistica' && <h2 id="tituloDahsboard">Estadistica</h2>}
                     {seccionActual === 'gestion' && <h2 id="tituloDahsboard">Gestión de Usuarios</h2>}
                     {seccionActual === 'solicitudes' && <h2 id="tituloDahsboard">Solicitudes</h2>}
                     {seccionActual === 'reportes' && <h2 id="tituloDahsboard">Reportes</h2>}
                 </div>
+                {seccionActual === 'Estadistica' && (
+                    <Estadistica/>
+                )}
                 {seccionActual === 'reportes' && (
                     <Reportes/>
                 )}

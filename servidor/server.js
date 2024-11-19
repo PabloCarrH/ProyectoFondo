@@ -84,20 +84,26 @@ app.get('/api/generateReportY', async (req, res) => {
 
 app.get('/api/generateReportD', async (req, res) => {
   try {
-    const [salesData] = await pool.promise().query('SELECT id, name,  AS total_sales FROM sales_data GROUP BY month_name');
+    const [salesData] = await pool.promise().query('SELECT id, name, email, membership_fee, monthly_fee  FROM affiliates_data WHERE status = "En mora"');
 
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Reporte');
 
     worksheet.columns = [
-      { header: 'Mes', key: 'month_name', width: 15 },
-      { header: 'Ventas', key: 'total_sales', width: 15 },
+      { header: 'Identificacion', key: 'id', width: 15 },
+      { header: 'Nombre', key: 'name', width: 15 },
+      { header: 'Email', key: 'email', width: 15 },
+      { header: 'Pago membresia', key: 'membership_fee', width: 15 },
+      { header: 'Pago Mensual', key: 'monthly_fee', width: 15 },
     ];
 
     salesData.forEach((item) => {
       worksheet.addRow({
-        month_name: item.month_name,
-        total_sales: item.total_sales,
+        id: item.id,
+        name: item.name,
+        email: item.email,
+        membership_fee: item.membership_fee,
+        monthly_fee: item.monthly_fee,
       });
     });
 

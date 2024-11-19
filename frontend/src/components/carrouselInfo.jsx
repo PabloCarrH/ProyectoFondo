@@ -1,49 +1,85 @@
-import Carousel from 'react-bootstrap/Carousel';
+import React, { useEffect, useRef, useState } from 'react';
+import { data } from '../assets/data';
 import '../Estilos/componentes.css';
-import '../App.css';
 
+const Carrousel = () => {
+  const listRef = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-function Carrousel() {
+  useEffect(() => {
+    const listNode = listRef.current;
+    const imgNode = listNode.querySelectorAll('li > img')[currentIndex];
 
+    if (imgNode) {
+      imgNode.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [currentIndex]);
+
+;
+
+  const scrollToImage = (direction) => {
+    if (direction === 'prev') {
+      setCurrentIndex((curr) => {
+        const isFirstSlide = currentIndex === 0;
+        return isFirstSlide ? data.length - 1 : curr - 1;
+      });
+    } else {
+      const isLastSlide = currentIndex === data.length - 1;
+      if (!isLastSlide) {
+        setCurrentIndex((curr) => curr + 1);
+      }
+    }
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
 
   return (
-    <div className='Carrousel'>
-    <Carousel
-      controls={false}
-    >
-      <Carousel.Item interval={8000}>
-        <div className='CarrouselIContent'>
-          <h1>Evento de integración de nuestros clientes</h1>
-          <p>Únase a nosotros el viernes, 18 de septiembre de 2024, para un evento ilustrativo sobre la 
-            integración de clientes en el sector bancario.</p>
-            <br/>
-          <p>Descubra cómo las soluciones bancarias innovadoras están dando forma al futuro de los servicios financieros. Participe en discusiones reveladoras, 
-            establezca contactos con colegas de la industria y conozca las últimas tendencias en la integración de clientes.</p>
+    <div className="main-container">
+      <div className="slider-container">
+        <div
+          className="leftArrow"
+          onClick={() => scrollToImage('prev')}
+        >
+          &#10092;
         </div>
-      </Carousel.Item>
-      <Carousel.Item interval={6000}>
-        <div className='CarrouselIContent'>
-          <h1>Concierto para Afiliados</h1>
-          <br/>
-          <p>¡Únase a nosotros el viernes, 18 de septiembre de 2024, para una noche inolvidable de música y conexión en nuestro Concierto Exclusivo para Afiliados!</p>
-          <br/>
-          <p>Disfrute de un evento vibrante lleno de talento musical, mientras se conecta con otros afiliados y explora nuevas oportunidades para fortalecer sus asociaciones.
-          ¡No se pierda esta oportunidad única de disfrutar de buena música y fortalecer sus lazos profesionales en un ambiente lleno de energía y camaradería!</p>
+        <div
+          className="rightArrow"
+          onClick={() => scrollToImage('next')}
+        >
+          &#10093;
         </div>
-      </Carousel.Item>
-      <Carousel.Item interval={6000}>
-        <div className='CarrouselIContent'>
-          <h1>Reunión interna de costos</h1>
-          <br/>
-          <p>¡Les invitamos a una reunión interna de costos el sábado, 19 de septiembre de 2024!</p>
-          <br/>
-          <p>Este encuentro es una oportunidad clave para analizar y optimizar nuestros procesos de gestión de costos. Participen en discusiones detalladas sobre estrategias de control, revisen las proyecciones financieras y colaboren con sus colegas para identificar áreas de mejora y eficiencia.
-          ¡Esperamos contar con su presencia y aportes para continuar fortaleciendo nuestra gestión de costos!</p>
+        <div className="container-images">
+          <ul ref={listRef}>
+            {data.map((item) => {
+              return (
+                <li key={item.id}>
+                  <img
+                    src={item.imgUrl}
+                    width={600}
+                    height={400}
+                    alt={`Slide ${item.id}`}
+                  />
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      </Carousel.Item>
-    </Carousel>
+        <div className="indicators">
+          {data.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${currentIndex === index ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            ></span>
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Carrousel;
