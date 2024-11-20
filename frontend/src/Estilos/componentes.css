@@ -3,6 +3,7 @@
 
 
 
+
 .Calendario{
     height: 520px;
     width: 90%;
@@ -32,7 +33,6 @@
   height: 520px;
 }
 
-/* Main container */
 
 .main-container {
   width: 90%;
@@ -41,13 +41,11 @@
   float: left;
 }
 
-/* Slider container */
 .slider-container {
   position: relative;
   height: 100%;
 }
 
-/* dots carrusel */
 .dots-container {
   display: flex;
   justify-content: center;
@@ -62,15 +60,14 @@
 
 }
 
-/* Arrows */
 .leftArrow {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(0, -40%);
   left: 32px;
   font-size: 50px;
   font-weight: 700;
-  color: #fff;
+  color: black;
   z-index: 1;
   cursor: pointer;
 }
@@ -78,11 +75,11 @@
 .rightArrow {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(0, -40%);
   right: 32px;
   font-size: 50px;
   font-weight: 700;
-  color: #fff;
+  color: black;
   z-index: 1;
   cursor: pointer;
 }
@@ -119,4 +116,26 @@
   display: block;
   margin: 0 auto;
   object-fit: cover;
+}
+
+
+.footerContainer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  height: 200px;
+  padding: 3%;
+}
+
+.socialButtons {
+  margin-bottom: 1rem;
+}
+
+.footerText {
+  background-color: #343a40;
+  padding: 1rem;
+}
+
+.socialBtn {
+  margin: 0.5rem;
 }

@@ -9,19 +9,29 @@ export function Calendario() {
 
   const myEventsList = [
     {
-      start: dayjs('2024-9-18T12:30:00').toDate(),
-      end: dayjs('2024-9-18T15:30:00').toDate(),
+      start: dayjs('2024-11-27T12:30:00').toDate(),
+      end: dayjs('2024-11-27T15:30:00').toDate(),
       title: "Evento de integración a nuestros clientes"
     },
     {
-      start: dayjs('2024-9-18T15:30:00').toDate(),
-      end: dayjs('2024-9-18T22:30:00').toDate(),
-      title: "Concierto"
+      start: dayjs('2024-11-29T15:30:00').toDate(),
+      end: dayjs('2024-11-29T22:30:00').toDate(),
+      title: "Evento de Comisiones"
     },
     {
-      start: dayjs('2024-9-19T09:00:00').toDate(),
-      end: dayjs('2024-9-19T11:00:00').toDate(),
-      title: "Reunión del equipo"
+      start: dayjs('2024-12-3T09:00:00').toDate(),
+      end: dayjs('2024-12-3T11:00:00').toDate(),
+      title: "Mejora de resultados"
+    },
+    {
+      start: dayjs('2024-12-5T09:00:00').toDate(),
+      end: dayjs('2024-12-5T11:00:00').toDate(),
+      title: "Mejora de ingresos"
+    },
+    {
+      start: dayjs('2024-12-10T09:00:00').toDate(),
+      end: dayjs('2024-12-10T11:00:00').toDate(),
+      title: "Afiliacion a empresas"
     }
   ];
 
