@@ -57,6 +57,11 @@ Accede al formulario de registro para crear un nuevo usuario en el sistema.
 Una vez registrado, utiliza las credenciales creadas para acceder al dashboard de usuario.
 En caso de pruebas, puedes regresar a la página principal y probar la funcionalidad de inicio de sesión.
 
+dashboard de administracion 
+
+correo: samuelitosanba102504@gmail.com
+contraseña:123456
+
 ## Funcionalidades Clave
 
 Dashboard Responsivo: Diseñado con Material UI y compatible con dispositivos móviles.
