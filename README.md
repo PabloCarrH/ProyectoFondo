@@ -39,11 +39,15 @@ npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg
 npm install firebase
 npm install react-router-dom
 npm install react-icons
+npm install express body-parser
+
 
 ### Backend
 
 Instala la dependencia para generar reportes en Excel:
 npm install exceljs
+npm install express body-parser
+
 
 ## Módulo de Inicio de Sesión
 Registrar un Usuario

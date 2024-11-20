@@ -12,6 +12,7 @@
   "author": "SantiagoTicora",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "exceljs": "^4.4.0",

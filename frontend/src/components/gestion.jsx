@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Estilos/gestion.css';
 
-
 const Table = () => {
   const [affiliatesData, setAffiliatesData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -26,23 +25,29 @@ const Table = () => {
     setShowEditModal(true);
   };
 
-  const handleDelete = (affiliate) => {
-    setEditingAffiliate({ ...affiliate });
-    setShowEditModal(true);
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3000/api/gestion1/${id}`)
+      .then(response => {
+        console.log(response.data.message);
+        setAffiliatesData(prevData => prevData.filter(affiliate => affiliate.id !== id));
+        setFilteredData(prevData => prevData.filter(affiliate => affiliate.id !== id));
+      })
+      .catch(error => console.error('Error al eliminar afiliado:', error));
   };
-
 
   const handleSave = () => {
     axios.put(`http://localhost:3000/api/gestion/${editingAffiliate.id}`, editingAffiliate)
     .then(response => {
       console.log(response.data.message);
-      setShowEditModal(false);
       setAffiliatesData(prevData => prevData.map(item => 
         item.id === editingAffiliate.id ? editingAffiliate : item
       ));
+      setFilteredData(prevData => prevData.map(item => 
+        item.id === editingAffiliate.id ? editingAffiliate : item
+      ));
+      setShowEditModal(false);
     })
     .catch(error => console.error('Error al guardar cambios:', error));
- 
   };
 
   const handleCancel = () => {
@@ -62,9 +67,6 @@ const Table = () => {
     if (idFilter) data = data.filter(item => item.id.toString().includes(idFilter));
     setFilteredData(data);
   };
-
-
-  
 
   useEffect(() => {
     filterData();
@@ -192,82 +194,80 @@ const Table = () => {
       </table>
 
       {showEditModal && (
-        <div style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'white',
-          padding: '20px',
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
-          zIndex: 1000
-        }}>
-          <center><h2 style={{color: '#073b51', marginLeft: '-16%', marginBottom: '7%'}}>Editar Afiliado</h2></center>
-          <label>
-            Nombre:
-            <input
-              type="text"
-              name="name"
-              value={editingAffiliate.name}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Correo:
-            <input
-              type="email"
-              name="email"
-              value={editingAffiliate.email}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Cuota de afiliación:
-            <input
-              type="number"
-              name="membership_fee"
-              value={editingAffiliate.membership_fee}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Cuota mensual:
-            <input
-              type="number"
-              name="monthly_fee"
-              value={editingAffiliate.monthly_fee}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Estado:
-            <select
-              name="status"
-              value={editingAffiliate.status}
-              onChange={handleInputChange}
-            >
-              <option value="Al día">Al día</option>
-              <option value="En mora">En mora</option>
-            </select>
-          </label>
-          <div style={{ marginTop: '10px' }}>
-            <button onClick={handleSave} style={{ marginRight: '10px' }}>Guardar</button>
-            <button onClick={handleCancel}>Cancelar</button>
-          </div>
-        </div>
-      )}
-
-      {showEditModal && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          zIndex: 999
-        }} onClick={handleCancel}></div>
-      )}
+  <div style={{
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo oscuro semitransparente
+    zIndex: 999, // Asegura que esté detrás del modal
+  }} onClick={handleCancel}>
+    <div style={{
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: 'white',
+      padding: '20px',
+      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+      zIndex: 1000, // Modal encima del fondo
+    }} onClick={(e) => e.stopPropagation()}>
+      <center><h2 style={{ color: '#073b51', marginLeft: '-16%', marginBottom: '7%' }}>Editar Afiliado</h2></center>
+      <label>
+        Nombre:
+        <input
+          type="text"
+          name="name"
+          value={editingAffiliate.name}
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        Correo:
+        <input
+          type="email"
+          name="email"
+          value={editingAffiliate.email}
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        Cuota de afiliación:
+        <input
+          type="number"
+          name="membership_fee"
+          value={editingAffiliate.membership_fee}
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        Cuota mensual:
+        <input
+          type="number"
+          name="monthly_fee"
+          value={editingAffiliate.monthly_fee}
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        Estado:
+        <select
+          name="status"
+          value={editingAffiliate.status}
+          onChange={handleInputChange}
+        >
+          <option value="Al día">Al día</option>
+          <option value="En mora">En mora</option>
+        </select>
+      </label>
+      <div style={{ marginTop: '10px' }}>
+        <button onClick={handleSave}>Guardar</button>
+        <button onClick={handleCancel}>Cancelar</button>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };

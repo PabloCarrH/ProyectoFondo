@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const ExcelJS = require('exceljs'); 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const pool = mysql.createPool({
   host: 'localhost',
@@ -157,8 +159,69 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.post('/enviar', (req, res) => {
+  const { Nombre, Telefono, Pais, Correo } = req.body;
+  const query = 'INSERT INTO contacto (Nombre, Telefono, Pais, Correo) VALUES (?, ?, ?, ?)';
+  
+  pool.query(query, [Nombre, Telefono, Pais, Correo], (err, result) => {
+      if (err) {
+          res.status(500).json({ mensaje: 'Error al guardar los datos' });
+          return;
+      }
+      res.status(200).json({ mensaje: '¡Pronto nos contactaremos contigo!' });
+  });
+});
+
+
+app.post('/enviarD', (req, res) => {
+  const { Nombre ,Correo , solicitud } = req.body;
+  const query = 'INSERT INTO docs (Nombre, Correo, solicitud) VALUES (?, ?, ?)';
+  
+  pool.query(query, [Nombre, Correo, solicitud], (err, result) => {
+      if (err) {
+          res.status(500).json({ mensaje: 'Error al guardar los datos' });
+          return;
+      }
+      res.status(200).json({ mensaje: '¡Pronto nos contactaremos contigo!' });
+  });
+});
+
+app.post('/inscripcion', (req, res) => {
+  const { Nombre ,Correo , solicitud } = req.body;
+  const query = 'INSERT INTO docs (Nombre, Correo, solicitud) VALUES (?, ?, ?)';
+  
+  pool.query(query, [Nombre, Correo, solicitud], (err, result) => {
+      if (err) {
+          res.status(500).json({ mensaje: 'Error al guardar los datos' });
+          return;
+      }
+      res.status(200).json({ mensaje: '¡Pronto nos contactaremos contigo!' });
+  });
+});
+
+
 app.get('/api/sales', (req, res) => {
   queryDatabase('SELECT month_name, year, sales FROM sales_data', [], res);
+});
+
+app.get('/api/contacto', (req, res) => {
+  const query = `SELECT Nombre, Telefono, Pais, Correo FROM contacto`;
+  queryDatabase(query, [], res);
+});
+
+app.get('/api/docs', (req, res) => {
+  const query = `SELECT Nombre, Correo, solicitud FROM docs`;
+  queryDatabase(query, [], res);
+});
+
+app.get('/api/sugerencias', (req, res) => {
+  const query = `SELECT Nombre, Correo, sugerencia FROM sugerencias`;
+  queryDatabase(query, [], res);
+});
+
+app.get('/api/programas', (req, res) => {
+  const query = `SELECT Nombre, Correo, Programa FROM programas`;
+  queryDatabase(query, [], res);
 });
 
 app.get('/api/sales1', (req, res) => {
@@ -171,6 +234,10 @@ app.get('/api/costs', (req, res) => {
 
 app.get('/api/affiliates', (req, res) => {
   queryDatabase('SELECT period, count FROM affiliates_data', [], res);
+});
+
+app.get('/api/contacto', (req, res) => {
+  queryDatabase('SELECT * FROM contacto', [], res);
 });
 
 app.get('/api/gestion', (req, res) => {
@@ -202,6 +269,96 @@ app.put('/api/gestion/:id', (req, res) => {
     }
   });
 });
+
+app.delete('/api/gestion1/:id', (req, res) => {
+  const { id } = req.params;
+
+  const query = `DELETE FROM affiliates_data WHERE id = ?`;
+
+  const params = [id];
+
+  pool.query(query, params, (error, result) => {
+    if (error) {
+      console.error('Error de base de datos:', error);
+      return res.status(500).json({ error: 'Error al eliminar afiliado' });
+    }
+
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: 'Afiliado eliminado exitosamente' });
+    } else {
+      res.status(404).json({ error: 'Afiliado no encontrado' });
+    }
+  });
+});
+
+app.delete('/api/contacto/:Nombre', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM contactos WHERE Nombre = ?';
+  
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting contact:', err);
+      return res.status(500).json({ error: 'Error deleting contact' });
+    }
+    if (result.affectedRows > 0) {
+      return res.status(200).json({ message: 'Contact deleted successfully' });
+    } else {
+      return res.status(404).json({ message: 'Contact not found' });
+    }
+  });
+});
+
+app.delete('/api/docs/:Nombre', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM documentos WHERE Nombre = ?';
+  
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting document:', err);
+      return res.status(500).json({ error: 'Error deleting document' });
+    }
+    if (result.affectedRows > 0) {
+      return res.status(200).json({ message: 'Document deleted successfully' });
+    } else {
+      return res.status(404).json({ message: 'Document not found' });
+    }
+  });
+});
+
+app.delete('/api/sugerencias/:Nombre', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM sugerencias WHERE Nombre = ?';
+  
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting suggestion:', err);
+      return res.status(500).json({ error: 'Error deleting suggestion' });
+    }
+    if (result.affectedRows > 0) {
+      return res.status(200).json({ message: 'Suggestion deleted successfully' });
+    } else {
+      return res.status(404).json({ message: 'Suggestion not found' });
+    }
+  });
+});
+
+app.delete('/api/programas/:Nombre', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM programas WHERE Nombre = ?';
+  
+  db.query(query, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting program:', err);
+      return res.status(500).json({ error: 'Error deleting program' });
+    }
+    if (result.affectedRows > 0) {
+      return res.status(200).json({ message: 'Program deleted successfully' });
+    } else {
+      return res.status(404).json({ message: 'Program not found' });
+    }
+  });
+});
+
 
 app.listen(3000, () => {
   console.log('Servidor ejecutándose en el puerto 3000');

@@ -175,11 +175,11 @@ table {
     border-radius: 15px;
     overflow: hidden;
     margin-left: 5%;
-    margin-top: 5%;
-    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 20px;
     background-color: white;
     border: none;
-    color: white;
+    color: #ffff;
     box-shadow: 1px 1px 1px 1px rgb(0,0 ,0,0.1 );
 }
 
@@ -197,28 +197,27 @@ thead th {
 
 tbody tr:last-child td {
     border-bottom: 2px solid #073b51; 
-    border: 1px solid #d9d9d9;
+    border: 1px solid #ffff;
 
 }
 
 tbody tr:first-child td:first-child {
     border-top-left-radius: 12px; 
-    border: 1px solid #d9d9d9;
+    border: 1px solid #ffff;
 }
 
 tbody tr:first-child td:last-child {
     border-top-right-radius: 12px; 
-    border: 1px solid #d9d9d9;
+    border: 1px solid #ffff;
 
 }
 
 tbody tr:last-child td:first-child {
     border-bottom-left-radius: 12px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #ffff;
 }
 
 tbody tr:last-child td:last-child {
     border-bottom-right-radius: 12px;
-    border: 1px solid #d9d9d9;
-
+    border: 1px solid #ffff;
 }

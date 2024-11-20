@@ -5,6 +5,7 @@ import user from '../img/usuario.png';
 import Reportes from '../components/reportes'
 import Gestion from '../components/gestion'
 import Estadistica from '../components/graficos'
+import Solicitudes from '../components/solicitudes'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMoneyBillTrendUp, faCommentDots, faBug, faBell, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -89,6 +90,9 @@ const Dashboard = () => {
                 </div>
                 {seccionActual === 'Estadistica' && (
                     <Estadistica/>
+                )}
+                {seccionActual === 'solicitudes' && (
+                    <Solicitudes/>
                 )}
                 {seccionActual === 'reportes' && (
                     <Reportes/>

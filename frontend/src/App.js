@@ -110,7 +110,6 @@ function App() {
     <Router>
       <div className="outer-container">
         <div className="background-container">
-          {/* Rutas con Header */}
           <Routes>
             <Route 
               path="/*" 
@@ -130,7 +129,6 @@ function App() {
                 </>
               } 
             />
-            {/* Rutas sin Header */}
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboardu" element={<DashboardU />} />
