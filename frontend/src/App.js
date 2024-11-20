@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { ThemeProvider } from "@material-tailwind/react";
 import './App.css';
 import imgmoney from './img/money.jpg'
 import Login from './Paginas/login.jsx';
@@ -10,6 +11,7 @@ import Documentos from './Paginas/documentos.jsx';
 import Corporativo from './Paginas/corporativo.jsx';
 import {Calendario} from './components/calendario';
 import Carrusel from './components/carrouselInfo.jsx';
+import {FooterWithLogo} from './components/footer.jsx';
 import Cards from './components/card'
 import { FaAngleDown } from "react-icons/fa";
 import Emprendedores from './Paginas/emprendedores.jsx';
@@ -66,11 +68,14 @@ function Home() {
           </div>
       </div>
       <div className='titlesCalendar'>
-        <h1>¡No te pierdas nuestros eventos!</h1>
-        <h4>Aprovecha esta oportunidad de aprendizaje y cononce toso lo que podemos ofrecerte</h4>
+        <h1>¡Somos Garantías!</h1>
+        <h4>Nos comprometemos a ofrecerte seguridad y confianza en cada paso.</h4>
       </div>
       <div className='crds'>
         <Cards/>
+      </div>
+      <div>
+        
       </div>
     </>
   );

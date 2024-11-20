@@ -46,6 +46,9 @@ html,body {
   height: 500px;
 }
 
+.titlesCalendar h4{
+  font-weight: 100;
+}
 
 .cale{
   width: 50%;
