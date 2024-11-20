@@ -7,29 +7,29 @@ Este proyecto consiste en un sitio web dedicado a la administración de un fondo
 
 ### Módulo Administrativo
 
-Estadísticas: Visualización de gráficos interactivos sobre ventas, costos, y crecimiento del fondo.
-Reportes: Generación de archivos Excel con datos relevantes mediante botones de descarga.
-Gestión de Afiliados: Visualización y edición de información de los afiliados, como estado de pagos, cuotas mensuales y montos de afiliación.
+#### Estadísticas: Visualización de gráficos interactivos sobre ventas, costos, y crecimiento del fondo.
+#### Reportes: Generación de archivos Excel con datos relevantes mediante botones de descarga.
+#### Gestión de Afiliados: Visualización y edición de información de los afiliados, como estado de pagos, cuotas mensuales y montos de afiliación.
 
 ### Módulo de Usuarios
 
-Registro e Inicio de Sesión: Permite a los usuarios registrarse y acceder al dashboard personalizado.
-Panel de Usuario: Incluye herramientas para la consulta de información personal y estado de afiliación.
-Instalación y Configuración
+#### Registro e Inicio de Sesión: Permite a los usuarios registrarse y acceder al dashboard personalizado.
+#### Panel de Usuario: Incluye herramientas para la consulta de información personal y estado de afiliación.
 
-## Configuración del Servidor
+## Instalación y Configuración
+
+### Configuración del Servidor
 Asegúrarse de iniciar el servidor antes de ejecutar el frontend.
 node server.js
 
-## Inicio del Frontend
+### Inicio del Frontend
 Ejecuta el siguiente comando para iniciar la interfaz del usuario:
 npm start
 
-# Dependencias
+## Dependencias
 
 ### Frontend
 Ejecutar los siguientes comandos para instalar las dependencias necesarias:
-
 npm install react-big-calendar
 npm install dayjs
 npm install react-bootstrap bootstrap
